@@ -94,9 +94,40 @@ public class Sort {
 	}
 
 
-	public static void quickSort(){
+	public static void quickSort(float[] array, int left, int right){
+		int index = partition(array, left, right);
+		if(left < index-1){
+			quickSort(array, left, index-1);
+		}
+		if(index < right){
+			quickSort(array, index, right);
+		}
 
+		if(left == 0 && right == array.length-1){
+			for(int i = 0; i < array.length; i++){
+				System.out.print(array[i] + "  ");
+			}
+			System.out.println();
+		}
 	}
+
+	public static int partition(float[] array, int left, int right){
+		float pivot = array[(left+right)/2];
+		while(left <= right){
+			while(array[left] < pivot) left++;
+			while(array[right] > pivot) right--;
+			if(left <= right){
+				float tmp = array[left];
+				array[left] = array[right];
+				array[right] = tmp;
+				left++;
+				right--;
+			}
+
+		}
+		return left;
+	}
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -106,5 +137,6 @@ public class Sort {
 		bubbleSort(array);
 		selectionSort(array);
 		mergeSort(array, 0, array.length-1);
+		quickSort(array, 0, array.length-1);
 	}
 }
