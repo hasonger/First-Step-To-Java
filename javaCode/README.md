@@ -122,12 +122,3 @@ Other Notes
 
 
 
-Finishing Up
-------------
-
-You should submit your source code and the program output.
-
-Thanks for investing the time to do this!  We believe this should
-take you about an hour to write assuming you have proficiency with
-a programming language.
-
